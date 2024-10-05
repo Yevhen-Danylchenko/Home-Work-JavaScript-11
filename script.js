@@ -8,18 +8,14 @@ const toFinish = document.getElementById('to-finish');
 
 const divContainer = document.getElementById('div-container');
 
-let number;
-let num;
-let num1;
+let num = 0;
 
-toNext.addEventListener('click', function () {
-    const opt1 = option1.value;
-    const opt2 = option2.value;    
+toNext.addEventListener('click', () => {
 
-    if (opt1) {
+    if (option1.checked == true) {
         num += 1;
     }
-    else if (opt2) {
+    else if (option2.checked == true) {
         num += 0;
     }
 
@@ -28,23 +24,19 @@ toNext.addEventListener('click', function () {
 })
 
 toFinish.addEventListener('click', () => {
-    const opt3 = option3.value;
-    const opt4 = option4.value;
 
-    if (opt4) {
-        num1 += 1;
+    if (option4.checked == true) {
+        num += 1;
     }
-    else if (opt3) {
-        num1 += 0;
+    else if (option3.checked == true) {
+        num += 0;
     }
-
-    number = num + num1;
 
     option3.value = '';
     option4.value = '';
 
     const div = document.createElement('div');
-    div.innerHTML = `Result: <span>${number}</span> correct answers to 2 questions.`;
+    div.innerHTML = `Result: <span>${num}</span> correct answers to 2 questions.`;
     divContainer.appendChild(div);
     div.className = 'content';
 })
